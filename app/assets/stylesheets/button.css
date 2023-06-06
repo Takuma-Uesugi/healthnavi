@@ -1,0 +1,21 @@
+.link.text-black:hover {
+  color: #7ed957;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.btn-green {
+  background-color: #7ed957;
+}
+
+.btn-orange {
+  background-color: #FFA500;
+}
+
+.btn-blue {
+  background-color: #0000CD;
+}

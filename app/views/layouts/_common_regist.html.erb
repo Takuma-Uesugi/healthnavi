@@ -1,0 +1,20 @@
+<div class="div-title mb-4">
+  <p class="title-p fw-bold text-main"><%= f.label :name, "ユーザー名", class: "px-1" %><span class="badge bg-primary">必須</span></p>
+  <%= f.text_field :name, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3', placeholder: "アイ" %>
+</div>
+<div class="div-title mb-4">
+  <p class="title-p fw-bold text-main"><%= f.label :email, "メールアドレス", class: "px-1" %><span class="badge bg-primary">必須</span></p>
+  <%= f.email_field :email, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3', placeholder: "ai@gmail.com" %>
+</div>
+<div class="div-title mb-4">
+  <p class="title-p fw-bold text-main"><%= f.label :password, "パスワード", class: "px-1" %><span class="badge bg-primary">必須</span></p>
+  <%= f.password_field :password, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+</div>
+<div class="div-title mb-4">
+  <p class="title-p fw-bold text-main"><%= f.label :password_confirmation, "パスワード再入力", class: "px-1" %><span class="badge bg-primary">必須</span></p>
+  <%= f.password_field :password_confirmation, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+</div>
+<div class="div-title mb-4">
+  <p class="title-p fw-bold text-main">プロフィール写真<span class="ms-1 badge bg-secondary">任意</span></p>
+  <%= f.file_field :image, style: 'display: inline-block;'%>
+</div>

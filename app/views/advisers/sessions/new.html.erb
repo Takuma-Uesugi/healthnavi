@@ -1,0 +1,27 @@
+<div class="row d-flex justify-content-center">
+  <div class="col d-flex justify-content-center text-center mt-5">
+    <div class="col-10 col-md-6 mt-5">
+      <div class="col-12 text-center pb-2">
+        <p class="w-lg-50 pt-3 fs-3 text-black">アドバイザーログイン</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <div class="col-10 col-md-6">
+    <%= form_with model: @adviser, url: adviser_session_path, class: 'text-center mb-4', local: true do |f| %>
+      <%= render 'layouts/validation_error', instance: @adviser %>
+      <div class="div-title mb-4">
+        <p class="title-p fw-bold text-main"><%= f.label :email, "メールアドレス", class: "px-1" %><span class="badge bg-primary">必須</span></p>
+        <%= f.email_field :email, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+      </div>
+      <div class="div-title mb-4">
+        <p class="title-p fw-bold text-main"><%= f.label :password, "パスワード", class: "px-1" %><span class="badge bg-primary">必須</span></p>
+        <%= f.password_field :password, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <%= f.submit "ログイン", class: "btn rounded fw-bold text-white mt-3 px-4 py-3 fs-6 btn-orange" %>
+      </div>
+    <% end %>
+  </div>
+</div>
