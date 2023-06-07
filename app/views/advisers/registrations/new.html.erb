@@ -1,44 +1,46 @@
-<div class="row d-flex justify-content-center">
-  <div class="col d-flex justify-content-center text-center mt-5">
-    <div class="col-10 col-md-6 mt-5">
-      <div class="col-12 text-center pb-2">
-        <p class="w-lg-50 pt-3 fs-3 text-black">アドバイザー登録</p>
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col d-flex justify-content-center text-center mt-5">
+      <div class="col-10 col-md-6 mt-5">
+        <div class="col-12 text-center pb-2">
+          <p class="w-lg-50 pt-3 fs-3 text-black">アドバイザー登録</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="row d-flex justify-content-center">
-  <div class="col-10 col-md-6">
-    <%= form_with model: @adviser, url: adviser_registration_path, class: 'text-center mb-4', local: true do |f| %>
-      <%= render 'layouts/validation_error', instance: @adviser %>
-      <%= render 'layouts/common_regist', f: f %>
-      <div class="div-title mb-4">
-        <p class="title-p fw-bold text-main px-1">性別<span class="ms-1 badge bg-primary">必須</span></p>
-        <%= f.radio_button :gender, "male", checked: true %>
-        <%= f.label :gender, '男性', value: "male" %>
-        <%= f.radio_button :gender, "female" %>
-        <%= f.label :gender, '女性', value: "female" %>
-      </div>
-      <div class="div-title mb-4">
-        <p class="title-p fw-bold text-main">資格証明書<span class="ms-1 badge bg-primary">必須</span></p>
-        <%= f.file_field :certification, style: 'display: inline-block;'%>
-      </div>
-      <div class="div-title mb-4 mt-4">
-        <p>
-          <span class="title-p fw-bold text-main"><%= f.label :career, "職務経歴", class: "px-1" %></span><span class="badge bg-primary">必須</span><br>
-          <span class="text-red">※健康に関する職歴のみ記述して下さい</span>
-        </p> 
-        <%= f.text_area :career, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3',placeholder: "〇〇〇〇年〇月～現在：〇〇として勤務" %>
-      </div>
-      <div class="div-title mb-4 mt-4">
-        <p>
-          <span class="title-p fw-bold text-main"><%= f.label :message, "ユーザーへのメッセージ", class: "px-1" %></span><span class="badge bg-primary">必須</span><br>
-        </p> 
-        <%= f.text_area :message, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <%= f.submit "新規登録", class: "btn rounded fw-bold text-white mt-3 px-4 py-3 fs-6 btn-orange", data: { confirm: '上記の内容で登録します。よろしいですか？'} %>
-      </div>
-    <% end %>
+  <div class="row d-flex justify-content-center">
+    <div class="col-10 col-md-6">
+      <%= form_with model: @adviser, url: adviser_registration_path, class: 'text-center mb-4', local: true do |f| %>
+        <%= render 'layouts/validation-error', instance: @adviser %>
+        <%= render 'layouts/profile/common-regist', f: f %>
+        <div class="div-title mb-4">
+          <p class="title-p fw-bold text-main px-1">性別<span class="ms-1 badge bg-primary">必須</span></p>
+          <%= f.radio_button :gender, "male", checked: true %>
+          <%= f.label :gender, '男性', value: "male" %>
+          <%= f.radio_button :gender, "female" %>
+          <%= f.label :gender, '女性', value: "female" %>
+        </div>
+        <div class="div-title mb-4">
+          <p class="title-p fw-bold text-main">資格証明書<span class="ms-1 badge bg-primary">必須</span></p>
+          <%= f.file_field :certification, style: 'display: inline-block;'%>
+        </div>
+        <div class="div-title mb-4 mt-4">
+          <p>
+            <span class="title-p fw-bold text-main"><%= f.label :career, "職務経歴", class: "px-1" %></span><span class="badge bg-primary">必須</span><br>
+            <span class="text-red">※健康に関する職歴のみ記述して下さい</span>
+          </p> 
+          <%= f.text_area :career, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3',placeholder: "〇〇〇〇年〇月～現在：〇〇として勤務" %>
+        </div>
+        <div class="div-title mb-4 mt-4">
+          <p>
+            <span class="title-p fw-bold text-main"><%= f.label :message, "ユーザーへのメッセージ", class: "px-1" %></span><span class="badge bg-primary">必須</span><br>
+          </p> 
+          <%= f.text_area :message, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <%= f.submit "新規登録", class: "btn rounded fw-bold text-white mt-3 px-4 py-3 fs-6 btn-orange", data: { confirm: '上記の内容で登録します。よろしいですか？'} %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
