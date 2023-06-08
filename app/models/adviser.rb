@@ -7,7 +7,6 @@ class Adviser < ApplicationRecord
   
   validates :name, presence: true
   validates :password_confirmation, presence: true
-  validates :image, presence: true
   validates :certification, presence: true
   validates :career, presence: true
   validates :message, presence: true

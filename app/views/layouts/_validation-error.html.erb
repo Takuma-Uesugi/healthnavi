@@ -1,8 +1,10 @@
 <% if instance.errors.full_messages.present? %>
-  <h3><%= instance.errors.count %> error</h3>
-  <ul>
-    <% instance.errors.full_messages.each do |msg| %>
-      <li class="list-unstyled"><%= msg %></li>
-    <% end %>
-  </ul>
+  <div class="alert alert-danger">
+    <h3><%= instance.errors.count %> error</h3>
+    <ul>
+      <% instance.errors.full_messages.each do |msg| %>
+        <li class="list-unstyled"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
