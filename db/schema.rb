@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2023_06_04_234841) do
     t.integer "age", null: false
     t.integer "tall"
     t.integer "weight"
-    t.text "purpose", size: :tiny, null: false
+    t.text "goal", size: :tiny, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

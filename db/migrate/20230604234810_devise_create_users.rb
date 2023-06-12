@@ -9,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.integer :age, null: false
       t.integer :tall, default: ""
       t.integer :weight, default: ""
-      t.text :purpose, null: false, limit: 50
+      t.text :goal, null: false, limit: 50
       
       ## Database authenticatable
       t.string :email,              null: false, default: ""
