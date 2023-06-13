@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       user_path(model)
     elsif adviser_signed_in?
-      root_path
+      adviser_path(model)
     end
   end
 end

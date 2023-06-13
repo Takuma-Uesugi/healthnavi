@@ -38,7 +38,7 @@
             <span class="text-red">50文字以内で入力して下さい</span><br>
             <span class="text-red">マイページでいつでも確認できます</span>
           </p> 
-          <%= f.text_area :goal, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3', placeholder: "心身共に健康な毎日を送りたい！！" %>
+          <%= f.text_area :goal, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3', maxlength: 50, placeholder: "心身共に健康な毎日を送りたい！！" %>
         </div>
         <div class="col-12 d-flex justify-content-center">
           <%= f.submit "新規登録", class: "btn rounded fw-bold text-white mt-3 px-4 py-3 fs-6 btn-green", data: { confirm: '上記の内容で登録します。よろしいですか？'} %>

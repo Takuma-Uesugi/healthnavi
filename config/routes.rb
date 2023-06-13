@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'advisers/show'
   root "tops#index"
   
   devise_for :users, controllers: {
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
   }
   
   resources :users, only: :show
+  resources :advisers, only: :show
 end
