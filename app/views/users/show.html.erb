@@ -18,19 +18,11 @@
         </tr>
         <tr>
           <th class="item-name">身長</th>
-          <% if current_user.tall.present? %>
-            <td><%= current_user.tall %></td>
-          <% else %>
-            <td>非公開</td>
-          <% end %>
+          <td><%= current_user.tall %></td>
         </tr>
         <tr>
           <th class="item-name">体重</th>
-          <% if current_user.weight.present? %>
-            <td style="border-bottom: 1px solid #000000;"><%= current_user.weight %></td>
-          <% else %>
-            <td style="border-bottom: 1px solid #000000;">非公開</td>
-          <% end %>
+          <td style="border-bottom: 1px solid #000000;"><%= current_user.weight %></td>
         </tr>
       </table>
       <%= link_to "アカウント編集", edit_user_registration_path, class: "btn text-white btn-green me-3" %>

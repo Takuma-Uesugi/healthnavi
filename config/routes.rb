@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'advisers/show'
   root "tops#index"
   
   devise_for :users, controllers: {
