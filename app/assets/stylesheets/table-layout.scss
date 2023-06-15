@@ -1,0 +1,29 @@
+.user-table, .adviser-table {
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.user-table th, .user-table td, .adviser-table th, .adviser-table td {
+  padding: 10px;
+  border: 1px solid #000000;
+}
+
+.user-table th, .adviser-table th {
+  background-color: #E9E9E9;
+}
+
+@media screen and (max-width: 768px) {
+  .user-table, .adviser-table {
+    width: 100%;
+  }
+  
+  .user-table th, .adviser-table th {
+    display: block;
+    border-bottom: none;
+  }
+  
+  .user-table td, .adviser-table td {
+    display: block;
+    border-bottom: none;
+  }
+}

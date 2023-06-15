@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :password_confirmation, presence: true
   validates :age, presence: true
-  validates :purpose, presence: true
+  validates :goal, presence: true
   
   def update_with_password(params, *options)
     params.delete(:current_password)

@@ -8,31 +8,12 @@
             <% if user_signed_in? %>
               <%= link_to "生活ログを投稿", "", class: "link text-decoration-none text-black me-3" %>
               <%= link_to "アドバイザーと相談", "", class: "link text-decoration-none text-black me-3" %>
-              <% if current_user.image.url.present? %>
-                <%= image_tag current_user.image.url, alt: 'ユーザー画像', class: 'rounded-circle flex-shrink-0 me-3 fit-cover', width: '50px', height: '50px' %>
-              <% end %>
-              <p class="pe-2 mt-3 text-black d-none d-md-block" style="font-size: 14px;"><%= current_user.name %></p>
+              <%= link_to "マイページ", user_path(current_user), class: "link text-decoration-none text-black" %>
             <% end %>
             <% if adviser_signed_in? %>
               <%= link_to "ユーザーと相談", "", class: "link text-decoration-none text-black me-3" %>
-              <% if current_adviser.image.url.present? %>
-                <%= image_tag current_adviser.image.url, alt: 'アドバイザー画像', class: 'rounded-circle flex-shrink-0 me-3 fit-cover', width: '50px', height: '50px' %>
-              <% end %>
-              <p class="pe-2 mt-3 text-black d-none d-md-block" style="font-size: 14px;"><%= current_adviser.name %></p>
+              <%= link_to "マイページ", "", class: "link text-decoration-none text-black" %>
             <% end %>
-            <div class="dropdown" style="width: 10px;height: 8px;">
-              <a class="dropdown-toggle text-decoration-none text-purple d-flex mt-1" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="width: 10px;height: 8px;"></a>
-              <div class="dropdown-menu dropdown-menu-end rounded" style="box-shadow: 0px 0px 10px #5B5F9C; padding: 4px 0px;">
-                <% if user_signed_in? %>
-                  <%= link_to "アカウント編集", edit_user_registration_path, class: "dropdown-item text-black py-2" %>
-                  <%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item text-black py-2", style: "border-top: 1px solid #D5D5D5;", method: :delete %>
-                <% end %>
-                <% if adviser_signed_in? %>
-                  <%= link_to "アカウント編集", edit_adviser_registration_path, class: "dropdown-item text-black py-2" %>
-                  <%= link_to "ログアウト", destroy_adviser_session_path, class: "dropdown-item text-black py-2", style: "border-top: 1px solid #D5D5D5;", method: :delete %>
-                <% end %>
-              </div>
-            </div>
           <% else %>
             <div class="dropdown me-3">
               <button class="btn btn-orange text-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

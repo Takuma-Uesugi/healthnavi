@@ -1,0 +1,57 @@
+<div class="container py-1">
+  <div class="card m-5">
+    <h5 class="card-header">ユーザー情報</h5>
+    <div class="card-body">
+      <%= image_tag current_user.image.url, alt: 'ユーザー画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+      <table class="user-table">
+        <tr>
+          <th class="item-name">ユーザー名</th>
+          <td><%= current_user.name %></td>
+        </tr>
+        <tr>
+          <th class="item-name">メールアドレス</th>
+          <td><%= current_user.email %></td>
+        </tr>
+        <tr>
+          <th class="item-name">年齢</th>
+          <td><%= current_user.age %></td>
+        </tr>
+        <tr>
+          <th class="item-name">身長</th>
+          <td><%= current_user.tall %></td>
+        </tr>
+        <tr>
+          <th class="item-name">体重</th>
+          <td style="border-bottom: 1px solid #000000;"><%= current_user.weight %></td>
+        </tr>
+      </table>
+      <%= link_to "アカウント編集", edit_user_registration_path, class: "btn text-white btn-green me-3" %>
+      <%= link_to "ログアウト", destroy_user_session_path, class: "btn text-white btn-green", method: :delete %>
+    </div>
+  </div>
+  <div class="card m-5">
+    <h5 class="card-header">あなたの目標</h5>
+    <div class="card-body">
+      <strong class="card-title"><%= current_user.goal %></strong>
+    </div>
+  </div>
+  <div class="card m-5">
+    <h5 class="card-header">生活ログの履歴</h5>
+    <div class="card-body">
+      <p class="card-text">
+        1日の過ごし方を棒グラフで表示する(睡眠・食事・運動・仕事・学習・趣味)
+        <%= image_tag 'ライフログのイメージ画像.png', alt: 'ライフログのイメージ画像', width: '800px', height: '400px' %>
+      </p>
+      <p class="card-text">日中の眠気がないか？(アイコン形式で表示)</p>
+      <p class="card-text">今日の気分はどうか？(アイコン形式で表示)</p>
+      <p class="card-text">お通じの状態はどうか？(アイコン形式で表示)</p>
+      <p class="card-text">どんな食事を摂ったか？(アイコン形式で表示)</p>
+    </div>
+  </div>
+  <div class="card m-5">
+    <h5 class="card-header">メッセージ通知</h5>
+    <div class="card-body">
+      アドバイザーからの投稿はありません
+    </div>
+  </div>
+</div>

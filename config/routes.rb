@@ -14,4 +14,7 @@ Rails.application.routes.draw do
     confirmations: "advisers/confirmations",
     sessions: "advisers/sessions"
   }
+  
+  resources :users, only: :show
+  resources :advisers, only: :show
 end
