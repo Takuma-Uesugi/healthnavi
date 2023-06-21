@@ -36,6 +36,16 @@
     </div>
   </div>
   <div class="card m-5">
+    <h5 class="card-header">担当アドバイザー</h5>
+    <div class="card-body">
+      <% @user.connect_advisers.each do |adviser| %>
+        <ul class="list-group">
+          <li class="list-group-item"><%= adviser.name %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  <div class="card m-5">
     <h5 class="card-header">生活ログの履歴</h5>
     <div class="card-body">
       <p class="card-text">

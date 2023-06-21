@@ -26,42 +26,54 @@
     </div>
   </div>
   <div class="card m-5">
+    <h5 class="card-header">担当しているユーザー</h5>
+    <div class="card-body">
+      <% @adviser.connect_users.each do |user| %>
+        <ul class="list-group">
+          <li class="list-group-item"><%= user.name %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  <div class="card m-5">
     <h5 class="card-header">ユーザーごとの生活ログ</h5>
     <div class="card-body">
-      <%= image_tag 'イメージ画像.jpeg', class: 'rounded-circle flex-shrink-0 me-3 fit-cover inline-block', alt: '担当ユーザー画像', width: '100px', height: '100px' %>
-      <span>たっくん</span>
-      <p class="card-text">
-        1日どう過ごしたかを棒グラフで表示する(睡眠・食事・運動・仕事・学習・趣味)
-        <%= image_tag 'ライフログのイメージ画像.png', alt: 'ライフログのイメージ画像', width: '800px', height: '400px' %>
-      </p>
-      <div class="card float-start w-25">
-        <div class="card-body px-2 py-2">
-          <p class="card-text">日中の眠気がないか？</p>
+      <% @adviser.connect_users.each do |user| %>
+        <%= image_tag 'イメージ画像.jpeg', class: 'rounded-circle flex-shrink-0 me-3 fit-cover inline-block', alt: '担当ユーザー画像', width: '100px', height: '100px' %>
+        <span>たっくん</span>
+        <p class="card-text">
+          1日どう過ごしたかを棒グラフで表示する(睡眠・食事・運動・仕事・学習・趣味)
+          <%= image_tag 'ライフログのイメージ画像.png', alt: 'ライフログのイメージ画像', width: '800px', height: '400px' %>
+        </p>
+        <div class="card float-start w-25">
+          <div class="card-body px-2 py-2">
+            <p class="card-text">日中の眠気がないか？</p>
+          </div>
+          <%= image_tag 'emoji-neutral.svg', class: 'card-img-top my-2', alt: 'ニコニコ', width: '100px', height: '100px' %>
         </div>
-        <%= image_tag 'emoji-neutral.svg', class: 'card-img-top my-2', alt: 'ニコニコ', width: '100px', height: '100px' %>
-      </div>
-      <div class="card float-start w-25">
-        <div class="card-body px-2 py-2">
-          <p class="card-text">今日の気分はどうか？</p>
+        <div class="card float-start w-25">
+          <div class="card-body px-2 py-2">
+            <p class="card-text">今日の気分はどうか？</p>
+          </div>
+          <%= image_tag 'emoji-neutral.svg', class: 'card-img-top my-2', alt: 'ニコニコ', width: '100px', height: '100px' %>
         </div>
-        <%= image_tag 'emoji-neutral.svg', class: 'card-img-top my-2', alt: 'ニコニコ', width: '100px', height: '100px' %>
-      </div>
-      <div class="card float-start w-25">
-        <div class="card-body px-2 py-2">
-          <p class="card-text">お通じの状態</p>
+        <div class="card float-start w-25">
+          <div class="card-body px-2 py-2">
+            <p class="card-text">お通じの状態</p>
+          </div>
+          <div class="px-2 py-2">柔らかい便</div>
         </div>
-        <div class="px-2 py-2">柔らかい便</div>
-      </div>
-      <div class="card float-start w-25">
-        <div class="card-body px-2 py-2">
-          <p class="card-text">食事について</p>
+        <div class="card float-start w-25">
+          <div class="card-body px-2 py-2">
+            <p class="card-text">食事について</p>
+          </div>
+          <div class="px-2 py-2">
+            <p>朝：シリアル・ヨーグルト・コーヒー</p>
+            <p>昼：冷やし中華</p>
+            <p>夜：ご飯・味噌汁・麻婆豆腐</p>
+          </div>
         </div>
-        <div class="px-2 py-2">
-          <p>朝：シリアル・ヨーグルト・コーヒー</p>
-          <p>昼：冷やし中華</p>
-          <p>夜：ご飯・味噌汁・麻婆豆腐</p>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
   <div class="card m-5">

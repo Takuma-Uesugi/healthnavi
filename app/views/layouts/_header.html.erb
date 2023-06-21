@@ -7,11 +7,11 @@
           <% if user_signed_in? || adviser_signed_in? %>
             <% if user_signed_in? %>
               <%= link_to "生活ログを投稿", "", class: "link text-decoration-none text-black me-3" %>
-              <%= link_to "アドバイザーと相談", "", class: "link text-decoration-none text-black me-3" %>
+              <%= link_to "アドバイザーと相談", chat_rooms_path(current_user), class: "link text-decoration-none text-black me-3" %>
               <%= link_to "マイページ", user_path(current_user), class: "link text-decoration-none text-black" %>
             <% end %>
             <% if adviser_signed_in? %>
-              <%= link_to "ユーザーと相談", "", class: "link text-decoration-none text-black me-3" %>
+              <%= link_to "ユーザーと相談", "/advisers/#{current_adviser.id}/chat_rooms", class: "link text-decoration-none text-black me-3" %>
               <%= link_to "マイページ", adviser_path(current_adviser), class: "link text-decoration-none text-black" %>
             <% end %>
           <% else %>

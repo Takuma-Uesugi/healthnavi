@@ -8,6 +8,12 @@ class User < ApplicationRecord
   validates :age, presence: true
   validates :goal, presence: true
   
+  has_many :adviser_users
+  has_many :connect_advisers, through: :adviser_users, source: :adviser
+  has_many :chat_rooms
+  has_many :chat_to_advisers, through: :chat_rooms, source: :adviser
+  has_many :messages
+  
   def update_with_password(params, *options)
     params.delete(:current_password)
 

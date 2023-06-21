@@ -1,6 +1,4 @@
 class Adviser < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   mount_uploader :image, ImageUploader
@@ -10,6 +8,12 @@ class Adviser < ApplicationRecord
   validates :certification, presence: true
   validates :career, presence: true
   validates :message, presence: true
+  
+  has_many :adviser_user
+  has_many :connect_users, through: :adviser_user, source: :user
+  has_many :chat_rooms
+  has_many :chat_to_users, through: :chat_rooms, source: :user
+  has_many :messages
   
   def update_with_password(params, *options)
     params.delete(:current_password)

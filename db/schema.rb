@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_04_234841) do
+ActiveRecord::Schema.define(version: 2023_06_19_235331) do
+
+  create_table "adviser_users", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "adviser_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["adviser_id"], name: "index_adviser_users_on_adviser_id"
+    t.index ["user_id"], name: "index_adviser_users_on_user_id"
+  end
 
   create_table "advisers", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -28,6 +37,25 @@ ActiveRecord::Schema.define(version: 2023_06_04_234841) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_advisers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_advisers_on_reset_password_token", unique: true
+  end
+
+  create_table "chat_rooms", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "adviser_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["adviser_id"], name: "index_chat_rooms_on_adviser_id"
+    t.index ["user_id"], name: "index_chat_rooms_on_user_id"
+  end
+
+  create_table "messages", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "adviser_id"
+    t.bigint "chat_room_id"
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["chat_room_id"], name: "index_messages_on_chat_room_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -49,4 +77,9 @@ ActiveRecord::Schema.define(version: 2023_06_04_234841) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "adviser_users", "advisers"
+  add_foreign_key "adviser_users", "users"
+  add_foreign_key "chat_rooms", "advisers"
+  add_foreign_key "chat_rooms", "users"
+  add_foreign_key "messages", "chat_rooms"
 end
