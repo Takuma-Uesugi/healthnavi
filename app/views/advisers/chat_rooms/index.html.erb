@@ -1,11 +1,11 @@
-<div class="chat-container py-5">
+<div class="chatroom-container py-5">
   <ul class="list-group">
     <% @adviser.chat_to_users.each do |user| %>
       <% @chat_room = ChatRoom.find_by(user_id: user.id) %>
-      <a href='<%= "/advisers/#{@adviser.id}/chat_rooms/#{@chat_room.id}/messages" %>' class="list-group-item list-group-item-action chat-list">
+      <%= link_to adviser_chat_room_messages_path(current_adviser.id, @chat_room.id), class: "list-group-item list-group-item-action chat-list" do %>
         <%= image_tag user.image.url, alt: 'ユーザー画像', class: 'rounded-circle flex-shrink-0 me-3 fit-cover inline-block', width: '50px', height: '50px' %>
         <%= user.name %>
-      </a>
+      <% end %>
     <% end %>
   </ul>
 </div>
