@@ -1,0 +1,8 @@
+<h5 class="card-header"><%= title %></h5>
+<div class="card-body">
+  <% person.partners.each do |partner| %>
+    <ul class="list-group">
+      <li class="list-group-item"><%= partner.name %></li>
+    </ul>
+  <% end %>
+</div>

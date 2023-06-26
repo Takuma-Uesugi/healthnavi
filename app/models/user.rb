@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :goal, presence: true
   
   has_many :adviser_users
-  has_many :connect_advisers, through: :adviser_users, source: :adviser
+  has_many :partners, through: :adviser_users, source: :adviser
   has_many :chat_rooms
   has_many :chat_to_advisers, through: :chat_rooms, source: :adviser
   has_many :messages

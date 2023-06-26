@@ -1,0 +1,11 @@
+<% if user_signed_in? && message.adviser_id.present? %>
+  <%= image_tag message.adviser.image.url, alt: 'アドバイザー画像', class: 'rounded-circle flex-shrink-0 fit-cover inline-block', width: '50px', height: '50px' %>
+  <span class="partner-message bg-green text-black">
+    <%= message.body %>
+  </span>
+<% elsif adviser_signed_in? && message.user_id.present? %>
+  <%= image_tag message.user.image.url, alt: 'ユーザー画像', class: 'rounded-circle flex-shrink-0 fit-cover inline-block', width: '50px', height: '50px' %>
+  <span class="partner-message bg-green text-black">
+    <%= message.body %>
+  </span>
+<% end %>

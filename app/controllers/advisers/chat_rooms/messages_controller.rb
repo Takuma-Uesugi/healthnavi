@@ -3,7 +3,7 @@ class Advisers::ChatRooms::MessagesController < ApplicationController
   
   def index
     @chat_room = ChatRoom.find(params[:chat_room_id])
-    @messages = Message.where(chat_room_id: @chat_room.id)
+    @messages = @chat_room.messages
   end
   
   def create

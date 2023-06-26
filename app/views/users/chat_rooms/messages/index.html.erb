@@ -1,28 +1,17 @@
 <div class="chat-container pt-5">
   <div class="chat-group mb-3">
     <% @messages.each do |message| %>
-      <% if message.adviser_id.present? %>
-        <div class="message-left">
-          <%= image_tag message.adviser.image.url, alt: 'アドバイザー画像', class: 'rounded-circle flex-shrink-0 fit-cover inline-block', width: '50px', height: '50px' %>
-          <span class="partner-message bg-green text-black">
-            <%= message.body %>
-          </span>
-        </div>
-      <% end %>
-      <% if message.user_id.present? %>
-        <div class="message-right">
-          <span class="my-message bg-green text-black">
-            <%= message.body %>
-          </span>
-        </div>
-      <% end %>
+      <div class="message-left">
+        <%= render 'layouts/chat/common-partner-message', message: message %>
+      </div>
+      <div class="message-right">
+        <%= render 'layouts/chat/common-my-message', message: message %>
+      </div>
     <% end %>
   </div>
   <div class="bg-glay pt-5 d-flex flex-column">
     <%= form_with model: [@chat_room, Message.new], url: user_chat_room_messages_path, method: :post, class: 'text-center', local: true do |f| %>
       <%= f.text_area :body, class: 'form-control py-md-3 rounded bg-white box-shadow w-75 d-inline'%>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.hidden_field :chat_room_id, value: @chat_room.id %>
       <%= f.submit "送信", class: "btn rounded fw-bold text-white px-2 py-2 btn-green" %>
     <% end %>
   </div>

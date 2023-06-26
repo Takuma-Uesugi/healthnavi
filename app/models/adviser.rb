@@ -9,8 +9,8 @@ class Adviser < ApplicationRecord
   validates :career, presence: true
   validates :message, presence: true
   
-  has_many :adviser_user
-  has_many :connect_users, through: :adviser_user, source: :user
+  has_many :adviser_users
+  has_many :partners, through: :adviser_users, source: :user
   has_many :chat_rooms
   has_many :chat_to_users, through: :chat_rooms, source: :user
   has_many :messages
