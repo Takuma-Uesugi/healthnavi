@@ -1,6 +1,6 @@
 <div class="chat-container pt-5">
   <div class="chat-group mb-3">
-    <%= render partial: 'message', collection: @messages %>
+    <%= render @messages %>
   </div>
   <div class="bg-glay pt-5 d-flex flex-column">
     <%= form_with model: [@chat_room, Message.new], url: adviser_chat_room_messages_path, method: :post, class: 'text-center', local: true do |f| %>
