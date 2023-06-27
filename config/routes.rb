@@ -15,6 +15,16 @@ Rails.application.routes.draw do
     sessions: "advisers/sessions"
   }
   
-  resources :users, only: :show
-  resources :advisers, only: :show
+  resources :users do
+    resources :chat_rooms, controller: 'users/chat_rooms' do
+      resources :messages, controller: 'users/chat_rooms/messages'
+    end
+  end
+  
+  resources :advisers, only: :show do
+    resources :chat_rooms, controller: 'advisers/chat_rooms' do
+      resources :messages, controller: 'advisers/chat_rooms/messages'
+    end
+  end
+  
 end
