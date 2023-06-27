@@ -1,13 +1,6 @@
 <div class="chat-container pt-5">
   <div class="chat-group mb-3">
-    <% @messages.each do |message| %>
-      <div class="message-left">
-        <%= render 'layouts/chat/common-partner-message', message: message %>
-      </div>
-      <div class="message-right">
-        <%= render 'layouts/chat/common-my-message', message: message %>
-      </div>
-    <% end %>
+    <%= render partial: 'message', collection: @messages %>
   </div>
   <div class="bg-glay pt-5 d-flex flex-column">
     <%= form_with model: [@chat_room, Message.new], url: user_chat_room_messages_path, method: :post, class: 'text-center', local: true do |f| %>

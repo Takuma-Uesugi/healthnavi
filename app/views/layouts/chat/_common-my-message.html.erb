@@ -1,9 +1,0 @@
-<% if user_signed_in? && message.user_id.present? %>
-  <span class="my-message bg-green text-black">
-    <%= message.body %>
-  </span>
-<% elsif adviser_signed_in? && message.adviser_id.present? %>
-  <span class="my-message bg-green text-black">
-    <%= message.body %>
-  </span>
-<% end %>
