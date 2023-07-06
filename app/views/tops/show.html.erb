@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col d-flex justify-content-center text-center">
+      <div class="col-10 col-md-6 mt-5">
+        <div class="col-12 text-center pb-2">
+          <p class="w-lg-50 pt-3 fs-3 fw-bold text-black"><%= @content.title %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col d-flex justify-content-center text-center">
+      <div class="col-10 col-md-6">
+        <div class="content-img mb-5">
+          <%= image_tag @content.image_url, alt: 'コンテンツ画像', class: 'content-img' %>
+        </div>
+        <section class="mb-5">
+          <div class="paragraph fs-4 text-orange">
+            <p><%= @content.first_paragraph %></p>
+          </div>
+          <div class="content">
+            <p><%= @content.first_content %></p>
+          </div>
+        </section>
+        <% if @content.second_paragraph.present? %>
+          <section class="mb-5">
+            <div class="paragraph fs-4 text-orange">
+              <p><%= @content.second_paragraph %></p>
+            </div>
+            <div class="content">
+              <p><%= @content.second_content %></p>
+            </div>
+          </section>
+        <% end %>
+        <% if @content.third_paragraph.present? %>
+          <section class="mb-5">
+            <div class="paragraph fs-4 text-orange">
+              <p><%= @content.third_paragraph %></p>
+            </div>
+            <div class="content">
+              <p><%= @content.third_content %></p>
+            </div>
+          </section>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
