@@ -20,7 +20,11 @@ class Advisers::ContentsController < ApplicationController
   end
   
   def update
-    
+    if @content.update(content_params)
+      redirect_to adviser_path(params[:adviser_id]), flash: {notice: 'コンテンツを更新しました'}
+    else
+      redirect_to edit_adviser_content_path(current_adviser.id, @content.id), flash: {alert: 'コンテンツの更新に失敗しました'}
+    end
   end
   
   def destroy

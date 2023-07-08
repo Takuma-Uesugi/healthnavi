@@ -78,8 +78,16 @@
   <div class="card m-5">
     <h5 class="card-header">コンテンツ管理</h5>
     <div class="card-body">
+      <div class="content-lists mb-3">
+        <% @adviser.contents.each do |content| %>
+          <ul class="list-group">
+            <%= link_to edit_adviser_content_path(current_adviser.id, content.id), class: "list-group-item list-group-item-action list-selected" do %>
+              <%= content.title %>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
       <%= link_to "コンテンツ登録", new_adviser_content_path(current_adviser), class: "btn text-white btn-green me-3" %>
-      <%= link_to "コンテンツ編集", "", class: "btn text-white btn-green" %>
     </div>
   </div>
 </div>

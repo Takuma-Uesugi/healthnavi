@@ -9,11 +9,12 @@
     </div>
   </div>
   <div class="row d-flex justify-content-center">
+    <div class="content-img mb-5">
+      <%= image_tag @content.image_url, alt: 'コンテンツ画像', class: 'content-img' %>
+    </div>
     <div class="col d-flex justify-content-center text-center">
       <div class="col-10 col-md-6">
-        <div class="content-img mb-5">
-          <%= image_tag @content.image_url, alt: 'コンテンツ画像', class: 'content-img' %>
-        </div>
+        
         <section class="mb-5">
           <div class="paragraph fs-4 text-orange">
             <p><%= @content.first_paragraph %></p>

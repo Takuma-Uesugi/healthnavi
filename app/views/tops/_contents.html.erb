@@ -1,12 +1,10 @@
-<% @category.contents.each do |content| %>
-  <div class="col">
-    <article class="card h-100">
-      <%= link_to content_path(content) do %>
-        <%= image_tag content.image_url, class: "card-img-top", alt: "コンテンツ画像" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= content.title %></h5>
-        </div>
-      <% end %>
-    </article>
-  </div>
-<% end %>
+<div class="col">
+  <article class="card h-100">
+    <%= link_to content_path(contents) do %>
+      <%= image_tag contents.image_url, class: "card-img-top", alt: "コンテンツ画像" %>
+      <div class="card-body">
+        <h5 class="card-title"><%= contents.title %></h5>
+      </div>
+    <% end %>
+  </article>
+</div>

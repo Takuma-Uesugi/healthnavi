@@ -24,7 +24,7 @@
       </div>
     </div>
   <% else %>
-    <div class="tab-pane fade" id="underline-<%= @category.en_name %>" role="tabpanel" aria-labelledby="underline-<%= @category.en_name %>-tab" tabindex="0">
+    <div class="tab-pane fade show active" id="underline-<%= @category.en_name %>" role="tabpanel" aria-labelledby="underline-<%= @category.en_name %>-tab" tabindex="0">
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <%= render partial: 'contents', collection: @category.contents %>
       </div>
