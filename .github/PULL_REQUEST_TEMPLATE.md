@@ -1,14 +1,16 @@
 ## 動作確認
-
-<!-- PCで動かした場合の動作確認を動画で貼る or 見た目のみの作成で機能が必要ない場合は画像でOK -->
-**PCの動作確認動画**
+/original_app/healthnavi/app/assets/movie/チャットメッセージ送信.mp4
+/original_app/healthnavi/app/assets/movie/修正前.mp4
+/original_app/healthnavi/app/assets/movie/修正後.mp4
 
 ## やったこと
-<!-- 実装した内容を書く-->
+・アドバイザー画面からコンテンツを登録
+・登録したコンテンツをTOPページに表示
+・コンテンツのリンクから、コンテンツページにアクセスする
+・違うアドバイザーのメッセージが表示される不具合を修正
 
 ## 実装のリンク
-<!-- ガントチャートのタスク対象のセルのリンクを貼る -->
+https://docs.google.com/spreadsheets/d/1_8SRVj94eNyFDyR_cEOUqjmYh6XELEjfX9QQVsSsmJY/edit#gid=1897158943&range=B51
 
 ## 備考
 
-<!-- なければ、書かなくても良い。相談事項があれば、ここに書く。-->
