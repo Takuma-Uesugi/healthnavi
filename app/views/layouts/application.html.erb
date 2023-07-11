@@ -22,7 +22,11 @@
     </header>
     <main>
       <% flash.each do |key, value| %>
-        <p class="alert alert-primary vw-100 text-center my-0 <%= key %>" role="alert"><%= value %></p>
+        <% if key = "notice" %>
+          <p class="alert alert-primary vw-100 text-center my-0 <%= key %>" role="alert"><%= value %></p>
+        <% else %>
+          <p class="alert alert-alert vw-100 text-center my-0 <%= key %>" role="alert"><%= value %></p>
+        <% end %>
       <% end %>
       <%= yield %>
     </main>

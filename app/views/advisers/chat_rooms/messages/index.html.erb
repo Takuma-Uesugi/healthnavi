@@ -2,7 +2,7 @@
   <div class="chat-group mb-3">
     <%= render @messages %>
   </div>
-  <div class="bg-glay pt-5 d-flex flex-column">
+  <div class="bg-gray pt-5 d-flex flex-column">
     <%= form_with model: [@chat_room, Message.new], url: adviser_chat_room_messages_path, method: :post, class: 'text-center', local: true do |f| %>
       <%= f.text_area :body, class: 'form-control py-md-3 rounded bg-white box-shadow w-75 d-inline'%>
       <%= f.submit "送信", class: "btn rounded fw-bold text-white px-2 py-2 btn-green" %>

@@ -1,0 +1,33 @@
+<ul class="nav nav-underline" id="underline-tab" role="tablist">
+  <% @categories.each do |category| %>
+    <% if category.en_name == 'pickup' %>
+      <li class="nav-item" role="presentation">
+        <button type="button" class="nav-link active" id="underline-<%= category.en_name %>-tab" data-bs-toggle="pill" data-bs-target="#underline-<%= category.en_name %>" role="tab" aria-controls="underline-<%= category.en_name %>" aria-selected="true">
+          <%= link_to category.ja_name, root_path(category_id: category.id) %>
+        </button>
+      </li>
+    <% else %>
+      <li class="nav-item" role="presentation">
+        <button type="button" class="nav-link" id="underline-<%= category.en_name %>-tab" data-bs-toggle="pill" data-bs-target="#underline-<%= category.en_name %>" role="tab" aria-controls="underline-<%= category.en_name %>" aria-selected="false">
+          <%= link_to category.ja_name, root_path(category_id: category.id) %>
+        </button>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<div class="tab-content" id="underline-tabContent">
+  <% if @category.en_name == 'pickup' %>
+    <div class="tab-pane fade show active" id="underline-<%= @category.en_name %>" role="tabpanel" aria-labelledby="underline-<%= @category.en_name %>-tab" tabindex="0">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <%= render partial: 'contents', collection: @category.contents %>
+      </div>
+    </div>
+  <% else %>
+    <div class="tab-pane fade show active" id="underline-<%= @category.en_name %>" role="tabpanel" aria-labelledby="underline-<%= @category.en_name %>-tab" tabindex="0">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <%= render partial: 'contents', collection: @category.contents %>
+      </div>
+    </div>
+  <% end %>
+</div>

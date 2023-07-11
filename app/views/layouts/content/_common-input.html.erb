@@ -1,0 +1,67 @@
+<div class="div-title mb-4">
+  <p>
+    <span class="title-p fw-bold text-main"><%= f.label :title, "タイトル", class: "px-1" %><span class="badge bg-primary">必須</span></span><br>
+    <span class="text-red">30文字以内で入力して下さい</span><br>
+  </p>
+  <%= f.text_field :title, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+</div>
+
+<div class="div-title mb-4">
+  <p>
+    <span class="title-p fw-bold text-main"><%= f.label :category_id, "カテゴリ1", class: "px-1" %><span class="badge bg-primary">必須</span></span><br>
+  </p>
+  <%= select_tag "category[category_ids][]", options_from_collection_for_select(@categories, :id, :ja_name) %>
+</div>
+<div class="div-title mb-4">
+  <p>
+    <span class="title-p fw-bold text-main"><%= f.label :category_id, "カテゴリ2", class: "px-1" %><span class="badge bg-secondary">任意</span></span><br>
+  </p>
+  <%= select_tag "category[category_ids][]", options_from_collection_for_select(@categories, :id, :ja_name), include_blank: true %>
+</div>
+
+<div class="div-title mb-4">
+  <p class="title-p fw-bold text-main">コンテンツ画像<span class="ms-1 badge bg-primary">必須</span></p>
+  <%= f.file_field :image, style: 'display: inline-block;'%>
+</div>
+<div class="div-title mb-4">
+  <p>
+    <span class="title-p fw-bold text-main"><%= f.label :first_paragraph, "段落１", class: "px-1" %><span class="badge bg-primary">必須</span></span><br>
+    <span class="text-red">30文字以内で入力して下さい</span><br>
+  </p>
+  <%= f.text_field :first_paragraph, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+</div>
+<div class="div-title mb-4 mt-4">
+  <p>
+    <span class="title-p fw-bold text-main"><%= f.label :first_content, "文章１", class: "px-1" %></span><span class="badge bg-primary">必須</span><br>
+  </p> 
+  <%= f.text_area :first_content, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+</div>
+<div class="div-title mb-4">
+  <p>
+    <span class="title-p fw-bold text-main"><%= f.label :second_paragraph, "段落２", class: "px-1" %><span class="badge bg-secondary">任意</span></span><br>
+    <span class="text-red">30文字以内で入力して下さい</span><br>
+  </p>
+  <%= f.text_field :second_paragraph, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+</div>
+<div class="div-title mb-4 mt-4">
+  <p>
+    <span class="title-p fw-bold text-main"><%= f.label :second_content, "文章２", class: "px-1" %></span><span class="badge bg-secondary">任意</span><br>
+  </p> 
+  <%= f.text_area :second_content, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+</div>
+<div class="div-title mb-4">
+  <p>
+    <span class="title-p fw-bold text-main"><%= f.label :third_paragraph, "段落３", class: "px-1" %><span class="badge bg-secondary">任意</span></span><br>
+    <span class="text-red">30文字以内で入力して下さい</span><br>
+  </p>
+  <%= f.text_field :third_paragraph, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+</div>
+<div class="div-title mb-4 mt-4">
+  <p>
+    <span class="title-p fw-bold text-main"><%= f.label :third_content, "文章３", class: "px-1" %></span><span class="badge bg-secondary">任意</span><br>
+  </p> 
+  <%= f.text_area :third_content, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3' %>
+</div>
+<div class="col-12 d-flex justify-content-center">
+  <%= f.submit "登録", class: "btn rounded fw-bold text-white mt-3 px-4 py-3 fs-6 btn-green", data: { confirm: '上記の内容で登録します。よろしいですか？'} %>
+</div>

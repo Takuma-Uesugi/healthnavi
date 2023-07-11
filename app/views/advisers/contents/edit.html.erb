@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col d-flex justify-content-center text-center">
+      <div class="col-10 col-md-6 mt-5">
+        <div class="col-12 text-center pb-2">
+          <p class="w-lg-50 pt-3 fs-3 text-black">コンテンツ更新</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-10 col-md-6">
+      <%= form_with model: @content, url: adviser_content_path(current_adviser.id, @content.id), class: 'text-center mb-4', local: true do |f| %>
+        <%= render 'layouts/validation-error', instance: @content %>
+        <%= render 'layouts/content/common-input', f: f %>
+      <% end %>
+    </div>
+  </div>
+</div>
