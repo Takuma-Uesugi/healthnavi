@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   }
   
   resources :users, only: :show do
+    resources :life_logs, controller: 'users/life_logs', only: [:new, :create, :edit, :update]
     resources :chat_rooms, controller: 'users/chat_rooms' do
       resources :messages, controller: 'users/chat_rooms/messages'
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_27_145915) do
+ActiveRecord::Schema.define(version: 2023_07_10_121107) do
 
   create_table "adviser_users", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 2023_06_27_145915) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["adviser_id"], name: "index_contents_on_adviser_id"
+  end
+
+  create_table "life_logs", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "sleepiness", null: false
+    t.integer "feeling", null: false
+    t.integer "feces", null: false
+    t.text "foods", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_life_logs_on_user_id"
   end
 
   create_table "messages", charset: "utf8mb4", force: :cascade do |t|

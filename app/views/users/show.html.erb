@@ -2,7 +2,23 @@
   <div class="card m-5">
     <h5 class="card-header">ユーザー情報</h5>
     <div class="card-body">
-      <%= image_tag current_user.image.url, alt: 'ユーザー画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+      <% if current_user.image.present? %>
+        <%= image_tag current_user.image.url, alt: 'ユーザー画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+      <% else %>
+        <% if current_user.gender == 'male' %>
+          <% if current_user.age >= 40 %>
+            <%= image_tag '中高年の男性.jpg', alt: '中高年の男性の画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+          <% else %>
+            <%= image_tag '男性.png', alt: '男性の画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+          <% end %>
+        <% else %>
+          <% if current_user.age >= 40 %>
+            <%= image_tag '中高年の女性.png', alt: '中高年の女性の画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+          <% else %>
+            <%= image_tag '女性.jpg', alt: '女性の画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+          <% end %>
+        <% end %>
+      <% end %>
       <table class="user-table">
         <tr>
           <th class="item-name">ユーザー名</th>
@@ -41,14 +57,7 @@
   <div class="card m-5">
     <h5 class="card-header">生活ログの履歴</h5>
     <div class="card-body">
-      <p class="card-text">
-        1日の過ごし方を棒グラフで表示する(睡眠・食事・運動・仕事・学習・趣味)
-        <%= image_tag 'ライフログのイメージ画像.png', alt: 'ライフログのイメージ画像', width: '800px', height: '400px' %>
-      </p>
-      <p class="card-text">日中の眠気がないか？(アイコン形式で表示)</p>
-      <p class="card-text">今日の気分はどうか？(アイコン形式で表示)</p>
-      <p class="card-text">お通じの状態はどうか？(アイコン形式で表示)</p>
-      <p class="card-text">どんな食事を摂ったか？(アイコン形式で表示)</p>
+      <%= render partial: 'layouts/mypage/life_log', collection: @user.life_logs %>
     </div>
   </div>
   <div class="card m-5">

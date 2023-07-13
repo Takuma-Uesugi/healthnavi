@@ -19,3 +19,15 @@
 .btn-blue {
   background-color: #0000CD;
 }
+
+.btn-invisible {
+  display: none;
+}
+
+.btn-invisible:checked + label .btn-icon {
+  background-color: #7ed957;
+}
+
+.btn-invisible:checked + label .btn-img {
+  border: #7ed957 5px solid;
+}
