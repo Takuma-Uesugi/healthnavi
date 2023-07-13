@@ -123,5 +123,6 @@ ActiveRecord::Schema.define(version: 2023_07_10_121107) do
   add_foreign_key "adviser_users", "users"
   add_foreign_key "chat_rooms", "advisers"
   add_foreign_key "chat_rooms", "users"
+  add_foreign_key "life_logs", "users"
   add_foreign_key "messages", "chat_rooms"
 end

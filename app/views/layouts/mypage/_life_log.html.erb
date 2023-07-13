@@ -1,5 +1,5 @@
 <section class="life_log mb-5">
-  <p class="mb-1"><%= life_log.created_at %></p>
+  <p class="mb-1"><%= life_log.created_at.year %>年<%= life_log.created_at.month %>月<%= life_log.created_at.mday %>日</p>
   1日どう過ごしたかを棒グラフで表示する(睡眠・食事・運動・仕事・学習・趣味)
   <%= image_tag 'ライフログのイメージ画像.png', alt: 'ライフログのイメージ画像', width: '800px', height: '400px' %>
   <div class="card float-start w-25">
