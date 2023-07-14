@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :chat_rooms
   has_many :chat_to_advisers, through: :chat_rooms, source: :adviser
   has_many :messages
+  has_many :life_logs
   
   def update_with_password(params, *options)
     params.delete(:current_password)

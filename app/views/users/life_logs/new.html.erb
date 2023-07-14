@@ -1,0 +1,146 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col d-flex justify-content-center text-center">
+      <div class="col-10 col-md-6 mt-5">
+        <div class="col-12 text-center pb-2">
+          <p class="w-lg-50 pt-3 fs-3 text-black">生活ログを投稿</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-10 col-md-6">
+      <%= form_with model: @life_log, url: user_life_logs_path, class: 'text-center mb-4', local: true do |f| %>
+        <%= render 'layouts/validation-error', instance: @life_log %>
+        <div class="div-title mb-4">
+          <p class="title-p fw-bold text-main px-1">日中の眠気はどうですか？<span class="ms-1 badge bg-primary">必須</span></p>
+          <div class="icon-select d-inline-block me-2">
+            <p class="mb-1">ひどい</p>
+            <%= f.radio_button :sleepiness, 1, class: "btn-invisible" %>
+            <%= f.label :sleepiness, value: 1 do %>
+              <%= image_tag 'face-tired-regular.svg', class: "btn-icon", alt: '眠気がひどい', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block mx-2">
+            <p class="mb-1">どちらでもない</p>
+            <%= f.radio_button :sleepiness, 2, class: "btn-invisible" %>
+            <%= f.label :sleepiness, value: 2 do %>
+              <%= image_tag 'face-meh-regular.svg', class: "btn-icon", alt: '眠気がひどくも良くもない', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block ms-2">
+            <p class="mb-1">全くない</p>
+            <%= f.radio_button :sleepiness, 3, class: "btn-invisible" %>
+            <%= f.label :sleepiness, value: 3 do %>
+              <%= image_tag 'face-laugh-squint-regular.svg', class: "btn-icon", alt: '眠気が全くない', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+        </div>
+        <div class="div-title mb-4">
+          <p class="title-p fw-bold text-main px-1">今日の気分はどうですか？<span class="ms-1 badge bg-primary">必須</span></p>
+          <div class="icon-select d-inline-block me-2">
+            <p class="mb-1">とても悪い</p>
+            <%= f.radio_button :feeling, 1, class: "btn-invisible" %>
+            <%= f.label :feeling, value: 1 do %>
+              <%= image_tag 'face-tired-regular.svg', class: "btn-icon", alt: '気分がとても悪い', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block mx-2">
+            <p class="mb-1">悪い</p>
+            <%= f.radio_button :feeling, 2, class: "btn-invisible" %>
+            <%= f.label :feeling, value: 2 do %>
+              <%= image_tag 'face-frown-regular.svg', class: "btn-icon", alt: '気分が悪い', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block mx-2">
+            <p class="mb-1">普通</p>
+            <%= f.radio_button :feeling, 3, class: "btn-invisible" %>
+            <%= f.label :feeling, value: 3 do %>
+              <%= image_tag 'face-meh-regular.svg', class: "btn-icon", alt: '気分が悪くも良くもない', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block mx-2">
+            <p class="mb-1">良い</p>
+            <%= f.radio_button :feeling, 4, class: "btn-invisible" %>
+            <%= f.label :feeling, value: 4 do %>
+              <%= image_tag 'face-smile-regular.svg', class: "btn-icon", alt: '気分が良い', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block ms-2">
+            <p class="mb-1">とても良い</p>
+            <%= f.radio_button :feeling, 5, class: "btn-invisible" %>
+            <%= f.label :feeling, value: 5 do %>
+              <%= image_tag 'face-laugh-squint-regular.svg', class: "btn-icon", alt: '気分がとても良い', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+        </div>
+        <div class="div-title mb-4">
+          <p class="title-p fw-bold text-main px-1">お通じの状態はどうですか？<span class="ms-1 badge bg-primary">必須</span></p>
+          <div class="icon-select mb-2">
+            <%= f.radio_button :feces, 1 %>
+            <%= f.label :feces, "出ていない", value: 1 %>
+          </div>
+          <div class="icon-select d-inline-block mx-2">
+            <p class="mb-1">コロコロ便</p>
+            <%= f.radio_button :feces, 2, class: "btn-invisible" %>
+            <%= f.label :feces, value: 2 do %>
+              <%= image_tag 'コロコロ便.jpg', class: "btn-img", alt: 'コロコロ便', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block mx-2">
+            <p class="mb-1">硬い便</p>
+            <%= f.radio_button :feces, 3, class: "btn-invisible" %>
+            <%= f.label :feces, value: 3 do %>
+              <%= image_tag '硬い便.jpg', class: "btn-img", alt: '硬い便', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block mx-2">
+            <p class="mb-1">やや硬い便</p>
+            <%= f.radio_button :feces, 4, class: "btn-invisible" %>
+            <%= f.label :feces, value: 4 do %>
+              <%= image_tag 'やや硬い便.jpg', class: "btn-img", alt: 'やや硬い便', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block ms-2">
+            <p class="mb-1">普通便</p>
+            <%= f.radio_button :feces, 5, class: "btn-invisible" %>
+            <%= f.label :feces, value: 5 do %>
+              <%= image_tag '普通便.jpg', class: "btn-img", alt: '普通便', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block ms-2">
+            <p class="mb-1">柔らかい便</p>
+            <%= f.radio_button :feces, 6, class: "btn-invisible" %>
+            <%= f.label :feces, value: 6 do %>
+              <%= image_tag '柔らかい便.jpg', class: "btn-img", alt: '柔らかい便', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block ms-2">
+            <p class="mb-1">泥状便</p>
+            <%= f.radio_button :feces, 7, class: "btn-invisible" %>
+            <%= f.label :feces, value: 7 do %>
+              <%= image_tag '泥状便.jpg', class: "btn-img", alt: '泥状便', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+          <div class="icon-select d-inline-block ms-2">
+            <p class="mb-1">水様便</p>
+            <%= f.radio_button :feces, 8, class: "btn-invisible" %>
+            <%= f.label :feces, value: 8 do %>
+              <%= image_tag '水様便.jpg', class: "btn-img", alt: '水様便', width: '80px', height: '80px' %>
+            <% end %>
+          </div>
+        </div>
+        <div class="div-title mb-4 mt-4">
+          <p>
+            <span class="title-p fw-bold text-main"><%= f.label :foods, "食事は何を摂りましたか？", class: "px-1" %></span><span class="badge bg-primary">必須</span><br>
+            <span class="text-red">※量が分からない場合は、ご飯(お茶碗１杯)の様に書いてもOKです</span>
+          </p> 
+          <%= f.text_area :foods, class: 'form-control py-md-3 rounded bg-white box-shadow mb-3',placeholder: "夕食：ご飯(お茶碗2杯)・茄子の味噌汁(インスタント)・豚の生姜焼き(6枚)" %>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <%= f.submit "投稿", class: "btn rounded fw-bold text-white mt-3 px-4 py-3 fs-6 btn-green", data: { confirm: '上記の内容で投稿します。よろしいですか？'} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
