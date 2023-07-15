@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: healthnavi_production
-  username: healthnavi
-  password: <%= ENV['HEALTHNAVI_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
