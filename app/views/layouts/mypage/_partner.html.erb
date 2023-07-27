@@ -1,0 +1,23 @@
+<section class="life_log mb-5">
+  
+  <% if partner.image.present? %>
+    <%= image_tag partner.image.url, class: 'rounded-circle flex-shrink-0 me-3 fit-cover inline-block', alt: '担当ユーザー画像', width: '100px', height: '100px' %>
+  <% else %>
+    <% if partner.gender == 'male' %>
+      <% if partner.age >= 40 %>
+        <%= image_tag '中高年の男性.jpg', alt: '中高年の男性の画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+      <% else %>
+        <%= image_tag '男性.png', alt: '男性の画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+      <% end %>
+    <% else %>
+      <% if partner.age >= 40 %>
+        <%= image_tag '中高年の女性.png', alt: '中高年の女性の画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+      <% else %>
+        <%= image_tag '女性.jpg', alt: '女性の画像', class: 'rounded-circle flex-shrink-0 mb-3 fit-cover inline-block', width: '100px', height: '100px' %>
+      <% end %>
+    <% end %>
+  <% end %>
+  
+  <span><%= partner.name %></span>
+  <%= render partial: 'layouts/mypage/life_log', collection: partner.life_logs %>
+</section>

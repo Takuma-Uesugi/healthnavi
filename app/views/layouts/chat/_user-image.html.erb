@@ -1,0 +1,17 @@
+<% if user.image.present? %>
+  <%= image_tag user.image.url, alt: 'ユーザー画像', class: 'rounded-circle flex-shrink-0 fit-cover inline-block', width: '50px', height: '50px' %>
+<% else %>
+  <% if user.gender == 'male' %>
+    <% if user.age >= 40 %>
+      <%= image_tag '中高年の男性.jpg', alt: '中高年の男性の画像', class: 'rounded-circle flex-shrink-0 fit-cover inline-block', width: '50px', height: '50px' %>
+    <% else %>
+      <%= image_tag '男性.png', alt: '男性の画像', class: 'rounded-circle flex-shrink-0 fit-cover inline-block', width: '50px', height: '50px' %>
+    <% end %>
+  <% else %>
+    <% if user.age >= 40 %>
+      <%= image_tag '中高年の女性.png', alt: '中高年の女性の画像', class: 'rounded-circle flex-shrink-0 fit-cover inline-block', width: '50px', height: '50px' %>
+    <% else %>
+      <%= image_tag '女性.jpg', alt: '女性の画像', class: 'rounded-circle flex-shrink-0 fit-cover inline-block', width: '50px', height: '50px' %>
+    <% end %>
+  <% end %>
+<% end %>

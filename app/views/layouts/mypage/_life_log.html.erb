@@ -1,9 +1,9 @@
-<section class="life_log mb-5">
-  <p class="mb-1"><%= life_log.created_at.year %>年<%= life_log.created_at.month %>月<%= life_log.created_at.mday %>日</p>
-  1日どう過ごしたかを棒グラフで表示する(睡眠・食事・運動・仕事・学習・趣味)
-  <%= image_tag 'ライフログのイメージ画像.png', alt: 'ライフログのイメージ画像', width: '800px', height: '400px' %>
-  <div class="card float-start w-25">
-    <div class="card-body px-2 py-2">
+<p class="mb-1"><%= life_log.created_at.year %>年<%= life_log.created_at.month %>月<%= life_log.created_at.mday %>日</p>
+1日どう過ごしたかを棒グラフで表示する(睡眠・食事・運動・仕事・学習・趣味)
+<%= image_tag 'ライフログのイメージ画像.png', alt: 'ライフログのイメージ画像', width: '800px', height: '400px' %>
+<div class="card-flex">
+  <div class="card w-25">
+    <div class="card-body p-2">
       <p class="card-text">日中の眠気</p>
     </div>
     <% case(life_log.sleepiness) %>
@@ -15,8 +15,8 @@
       <%= image_tag 'face-laugh-squint-regular.svg', class: 'card-img-top my-2', alt: '眠気が全くない', width: '100px', height: '100px' %>
     <% end %>
   </div>
-  <div class="card float-start w-25">
-    <div class="card-body px-2 py-2">
+  <div class="card w-25">
+    <div class="card-body p-2">
       <p class="card-text">今日の気分</p>
     </div>
     <% case(life_log.feeling) %>
@@ -32,8 +32,8 @@
       <%= image_tag 'face-laugh-squint-regular.svg', class: 'card-img-top my-2', alt: '気分がとても良い', width: '100px', height: '100px' %>
     <% end %>
   </div>
-  <div class="card float-start w-25">
-    <div class="card-body px-2 py-2">
+  <div class="card w-25">
+    <div class="card-body p-2">
       <p class="card-text">お通じの状態</p>
     </div>
     <% case(life_log.feces) %>
@@ -55,10 +55,12 @@
       <%= image_tag '水様便.jpg', class: 'card-img-top my-2', alt: '水様便', width: '100px', height: '100px' %>
     <% end %>
   </div>
-  <div class="card float-start w-25">
-    <div class="card-body px-2 py-2">
+  <div class="card w-25">
+    <div class="card-body p-2">
       <p class="card-text">食事について</p>
     </div>
-    <%= life_log.foods %>
+    <p class="meal-content">
+      <%= life_log.foods %>
+    </p>
   </div>
-</section>
+</div>

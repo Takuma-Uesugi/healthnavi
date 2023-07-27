@@ -39,11 +39,7 @@
   <div class="card m-5">
     <h5 class="card-header">ユーザーごとの生活ログ</h5>
     <div class="card-body">
-      <% @adviser.partners.each do |partner| %>
-        <%= image_tag partner.image.url, class: 'rounded-circle flex-shrink-0 me-3 fit-cover inline-block', alt: '担当ユーザー画像', width: '100px', height: '100px' %>
-        <span><%= partner.name %></span>
-        <%= render partial: 'layouts/mypage/life_log', collection: partner.life_logs %>
-      <% end %>
+      <%= render partial: 'layouts/mypage/partner', collection: @adviser.partners %>
     </div>
   </div>
   <div class="card m-5">
