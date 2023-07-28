@@ -1,8 +1,80 @@
 <%= render 'brand-image' %>
 <div class="container mb-5">
-  <div class="paragraph text-center pb-3">
-    <p class="text-orange fs-3 fw-light spacing my-0">コンテンツ</p>
-    <span class="text-black fw-light spacing">CONTENTS</span>
-  </div>
-  <%= render 'category-contents' %>
+  <section class="contents mb-5">
+    <div class="paragraph text-center pb-3">
+      <p class="text-orange fs-3 fw-light my-0">コンテンツ</p>
+      <span class="text-black fw-light">CONTENTS</span>
+    </div>
+    <%= render 'category-contents' %>
+  </section>
+  <% if !signed_in? %>
+    <p class="text-orange text-center fs-3 fw-bold pb-2">健康意識を高めたいあなたに、Healthnaviをご紹介します！！</p>
+    <section class="item-introduction mb-5">
+      <article class="row d-flex function justify-content-center border border-dark rounded mb-5">
+        <div class="col-sm-6 function-image">
+          <%= image_tag 'アドバイザーとのチャット機能.png', class: "introduction-img" %>
+        </div>
+        <div class="col-sm-6 function-introduction bg-white text-center">
+          <div class="paragraph p-2">
+            <p class="text-black fs-3 fw-light my-0">POINT.1</p>
+            <span class="text-black fs-3 fw-light">チャット機能</span>
+          </div>
+          <p class="text-black">
+            「健康改善や維持にどう取り組んだらよいか？」など、健康に関する悩みを<br>
+            アドバイザーと相談できます。運営側で取得した資格などを厳しくチェックしているので、<br>
+            悪質ユーザーがアドバイザーに成りすまして、個人情報を盗まれる心配はありません。
+          </p>
+        </div>
+      </article>
+      <article class="row d-flex function justify-content-center border border-dark rounded mb-5">
+        <div class="col-sm-6 function-image">
+          <%= image_tag 'ボタンを使った選択肢.png', class: "introduction-img" %>
+        </div>
+        <div class="col-sm-6 function-introduction bg-white text-center">
+          <div class="paragraph p-2">
+            <p class="text-black fs-3 fw-light my-0">POINT.2</p>
+            <span class="text-black fs-3 fw-light">生活ログの投稿</span>
+          </div>
+          <p class="text-black">
+            「健康管理アプリを使っても、記録するのが大変で長く続かない」<br>
+            そう感じるユーザーのために、健康状態に関する質問はアイコンなどの選択肢で<br>
+            解答できる様にしました。投稿した生活ログでアイコンなどで表示されるので、<br>
+            健康状態が直感的に分かりやすいデザインになっています。
+          </p>
+        </div>
+      </article>
+      <article class="row d-flex function justify-content-center border border-dark rounded mb-5">
+        <div class="col-sm-6 function-image">
+          <%= image_tag '複数のアドバイザーと連携.png', class: "introduction-img" %>
+        </div>
+        <div class="col-sm-6 function-introduction bg-white text-center">
+          <div class="paragraph p-2">
+            <p class="text-black fs-3 fw-light my-0">POINT.3</p>
+            <span class="text-black fs-3 fw-light">複数のアドバイザーから、色んなアドバイスを貰える</span>
+          </div>
+          <p class="text-black">
+            サブスクリプション機能を使えば、運動や美容などに詳しいアドバイザーと<br>
+            相談することが出来ます。脂肪を燃焼しやすいトレーニング法を教わったり、<br>
+            利用者限定の健康イベントに参加できるので、更に健康を目指したい方に<br>
+            オススメです。
+          </p>
+        </div>
+      </article>
+    </section>
+    <p class="text-orange text-center fs-3 fw-bold pb-2">さああなたも、Healthnaviに登録して、健康的な毎日を過ごしてみませんか？</p>
+    <section class="user-regist-login mb-3">
+      <p class="text-black fs-3 fw-light text-center">ユーザーの方はこちら</p>
+      <div class="d-flex justify-content-center">
+        <%= link_to "ユーザー登録", new_user_registration_path, class: "btn text-white btn-orange me-5" %>
+        <%= link_to "ユーザーログイン", new_user_session_path, class: "btn text-white btn-orange" %>
+      </div>
+    </section>
+    <section class="adviser-regist-login">
+      <p class="text-black fs-3 fw-light text-center">アドバイザーの方はこちら</p>
+      <div class="d-flex justify-content-center">
+        <%= link_to "アドバイザー登録", new_adviser_registration_path, class: "btn text-white btn-blue me-5" %>
+        <%= link_to "アドバイザーログイン", new_adviser_session_path, class: "btn text-white btn-blue" %>
+      </div>
+    </section>
+  <% end %>
 </div>

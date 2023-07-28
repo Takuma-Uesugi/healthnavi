@@ -9,12 +9,12 @@ class Adviser < ApplicationRecord
   validates :career, presence: true
   validates :message, presence: true
   
-  has_many :contents
   has_many :adviser_users
   has_many :partners, through: :adviser_users, source: :user
   has_many :chat_rooms
   has_many :chat_to_users, through: :chat_rooms, source: :user
   has_many :messages
+  has_many :contents
   
   def update_with_password(params, *options)
     params.delete(:current_password)

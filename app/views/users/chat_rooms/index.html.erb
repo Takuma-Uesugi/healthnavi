@@ -3,8 +3,10 @@
     <% @user.chat_to_advisers.each do |adviser| %>
       <% @chat_room = ChatRoom.find_by(adviser_id: adviser.id, user_id: current_user.id) %>
       <%= link_to user_chat_room_messages_path(current_user.id, @chat_room.id), class: "list-group-item list-group-item-action list-selected" do %>
-        <%= image_tag adviser.image.url, alt: 'アドバイザー画像', class: 'rounded-circle flex-shrink-0 me-3 fit-cover inline-block', width: '50px', height: '50px' %>
-        <%= adviser.name %>
+      <%= render partial: 'layouts/chat/adviser-image', locals: { adviser: adviser } %>
+        <span class="adviser-name ms-3">
+          <%= adviser.name %>
+        </span>
       <% end %>
     <% end %>
   </ul>
